@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 -- Database: `movie_posters`
 --
 
+CREATE DATABASE IF NOT EXISTS `movie_posters` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;
+USE `movie_posters`;
 -- --------------------------------------------------------
 
 --
