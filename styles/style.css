@@ -1,0 +1,245 @@
+/* Set Global Colours*/
+:root {
+    --primary-colour: #346cc0;
+    --secondary-colour: #184281;
+}
+
+
+/* Fonts */
+/*     
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Rubik', sans-serif; */
+
+.font-rubik {
+    font-family: Rubik, sans-serif;
+}
+
+.font-roboto {
+    font-family: Roboto, sans-serif;
+}
+
+.colour-primary-bg {
+    background-color: var(--primary-colour);
+}
+
+.colour-secondary-bg {
+    background-color: var(--secondary-colour);
+}
+html {
+    background-color: rgb(20, 48, 87);
+}
+body { 
+    padding-top: 56px;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+    background-color: rgb(248, 248, 248);
+}
+main {flex-grow:1;}
+
+.hero-section {
+    /* background-image: url("imgs/banner1.jpg"); */
+    background-color: rgb(36, 73, 126); /* Used if the image is unavailable */
+    /* height: 300px; You must set a specified height */
+    background-position: center; /* Center the image */
+    background-repeat: no-repeat; /* Do not repeat the image */
+    background-size: cover;
+    border-radius: 10px;
+    max-width: 1500px;
+    margin: 0 auto;
+    color: white;
+}
+
+.purchase-complete {
+    border-radius: 10px;
+    border: 2px solid #87c0a6;
+}
+
+.account-dropdown >li > a{
+    color: rgb(223, 223, 223);
+    transition: all  0.2s ease;
+}
+
+.account-dropdown > li > a:hover {
+    background-color: var(--secondary-colour);
+    color: rgb(242, 242, 242);
+}
+
+
+#signup-form, #login-form {
+    border: 1px solid grey;
+    border-radius: 5px;
+    background-color: white;
+}
+
+
+.product-card {
+    transition: all 0.2s ease-in;
+}
+
+.product-card:hover {
+    box-shadow:0 0 10px rgba(0, 0, 0, .2);
+    border: 1px solid var(--primary-colour);
+    transform: scale(1.05);
+    z-index: 4;
+}
+
+.product-old-price {
+    text-decoration: line-through;
+    color: grey;
+    font-size: smaller;
+}
+
+.product-price {
+    font-weight: bold;
+}
+
+#home-carousel {
+    max-width: 1500px;
+    margin: 0 auto;
+}
+
+
+
+.bi-twitter {
+    transition: all 0.2s ease-in;
+}
+
+.bi-twitter:hover {
+    color: #00acee;
+    transform: scale(1.05);
+}
+
+.last-chance-badge {
+    background: var(--secondary-colour);
+    color: white;
+    font-size: 11px;
+    line-height: 14px;
+    padding: 10px 10px;
+    z-index: 4;
+    position: absolute;
+    top: 0;
+    left: 0px; 
+    transition: all 0.2s ease-in;
+    transform-origin: top left;
+}
+
+.product-card:hover .last-chance-badge {
+    transform: scale(0);
+    opacity: 0;
+}
+
+.card-title a {
+    text-decoration: none;
+}
+
+.list-group-item {
+    min-height: 2.7rem;
+} 
+
+.cart-message:empty {
+    height: 1.6em;
+}
+.cart-message {
+    white-space: pre-wrap;
+  }
+
+.item-removed {
+    color: rgb(214, 0, 0);
+    margin-left: 20px;
+}
+
+.empty-cart {
+    padding-top: 10px;
+    text-align: center;
+    font-size: 32px;
+}
+
+.category-tag {
+    text-decoration: none;
+}
+
+.category-navbar {
+    background-color: rgb(248, 248, 248);
+    border-bottom: 1px solid black;
+}
+
+.breadcrumb {
+    margin: 0;
+}
+
+.small-content {
+    display: flex;
+    /* min-height: 60vh; */
+    flex-direction: column;
+    justify-content: space-between;
+    text-align: center;
+    font-size: 32px;
+}
+
+.no-orders {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 20px;
+    color: rgb(63, 63, 63);
+}
+
+#navbarNav .nav-item {
+    transition: all 0.2s ease-in;
+}
+
+#navbarNav .nav-item:hover {
+    background-color: var(--secondary-colour);
+    border-radius: 5px;
+}
+
+#navbarNav .nav-item:hover .nav-link {
+    color: white !important;
+}
+
+.cart-alert {
+    display: none;
+    padding: 8px;
+}
+
+/* Shopping Cart classes */
+.quantity-updated {
+    padding: 2px 20px 2px 5px;
+    border-radius: 4px;
+    border: 1px solid green;
+    color: black;
+    opacity: 0;
+}
+
+.row-edit {
+    background-color: rgb(197, 245, 197);
+}
+
+.row-low-stock {
+    background-color: rgb(245, 206, 197);
+}
+.row-out-of-stock {
+    background-color: rgb(240, 240, 240);
+    color: rgb(170, 170, 170);
+}
+
+.product-title-col {
+    max-width: 100px;
+}
+.col-sale-price {
+    max-width: 100px;
+}
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.contact-twitter {
+    text-decoration-line: none;
+}
