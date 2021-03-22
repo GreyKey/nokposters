@@ -7,8 +7,8 @@ $db = new DBh();
 $obj = new Success($db);
 
 // Insert data to order and order_details, and update product quantities
-$obj->insertOrder();
-$obj->insertOrderDetails();
+$new_id = $obj->insertOrder();
+$obj->insertOrderDetails($new_id);
 $obj->updateProductQuantities();
 
 // Clear session cart array
