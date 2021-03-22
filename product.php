@@ -4,6 +4,13 @@
     $obj_product = new Product($db);
 
     $this_id = isset($_GET['id']) && is_numeric($_GET['id']) ? (int)$_GET['id'] : 1;
+
+    if ($this_id < 1) {
+        echo '<main><div class="small-content mt-5">Something went wrong</div></main>';
+        include_once('footer.php');
+        exit();
+    }
+
     $product = $obj_product->getProduct($this_id);
     $artist = $obj_product->getArtist($product['artist_id']);
     $tags = $obj_product->getProductGenres($this_id);
@@ -22,7 +29,7 @@
 
             <div class="col-sm-5 col-12">
                 <div class="product-description">
-                    <div class="product-name font-rubik mt-0 mt-sm-4"><h1><?=$product['product_name']?></h1></div>
+                    <div class="product-name font-rubik mt-2 mt-sm-4"><h1><?=$product['product_name']?></h1></div>
                     <hr>
                     <div class="product-artist mb-2"><strong>Artist: </strong><?=$artist?></div>
                     <div class="product-total mb-2"><strong>Run: </strong><?=$product['product_total']?></div>

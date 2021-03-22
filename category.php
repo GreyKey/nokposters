@@ -7,6 +7,12 @@
     
     $this_id = isset($_GET['id']) && is_numeric($_GET['id']) ? (int)$_GET['id'] : 1;
 
+    if ($this_id < 1) {
+        echo '<main><div class="small-content mt-5">Something went wrong</div></main>';
+        include_once('footer.php');
+        exit();
+    }
+    
     $genre_name = $category->getGenreName($this_id);
     $num_pages = $category->getTotalPages($this_id);
     $total_products = $category->getTotalProductsCount($this_id);

@@ -18,7 +18,7 @@ if (!(isset($_SESSION['np_cart']))) {
     ob_start(); ?>
     <div class="card product-card h-100">
         <a href="product.php?id=<?=$item['product_id']?>">
-            <img src="product_imgs/small/product_<?=$item['product_id']?>.jpg" class="card-img-top p-1" alt="Poster for <?=$item['product_name']?>">
+            <img src="product_imgs/small2/product_<?=$item['product_id']?>.jpg" class="card-img-top p-1" alt="Poster for <?=$item['product_name']?>">
         </a>
         <div class="card-body product-content text-center">
             <h4 class="card-title product-name"><a href="product.php?id=<?=$item['product_id']?>"><?=$item['product_name']?></a></h4>

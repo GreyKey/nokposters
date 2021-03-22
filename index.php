@@ -16,8 +16,8 @@
                     <p class="lead">Buy high quality prints inspired by films, and designed by independent artists</p>
                     <hr class="my-4">
                     <p>View our entire range, or choose from one of our categories:</p>
-                    <a class="btn btn-primary btn-md" href="products.php" role="button">View Our Products</a>
-                    <a class="btn btn-primary btn-md" href="categories.php" role="button">Categories</a>
+                    <a class="btn btn-primary btn-md mt-2" href="products.php" role="button">View Our Products</a>
+                    <a class="btn btn-primary btn-md mt-2" href="categories.php" role="button">Categories</a>
                 </div>
             </div>
             <div class="container font-rubik text-center mt-5" id="recentlyAdded">
@@ -40,7 +40,7 @@
                 <hr>
                 <div class="row mb-4">
                     <?php foreach ($featured_products as $item) : ?>
-                    <div class="col-md-3 col-6 my-3">
+                    <div class="col-md-3 col-12 my-3">
                         <?=createProductCard($item);?> 
                     </div>
                     <?php endforeach; ?>
@@ -53,7 +53,7 @@
                 <hr>
                 <div class="row mb-4">
                     <?php foreach ($last_chance as $item) : ?>
-                    <div class="col-md-3 col-6 my-3">
+                    <div class="col-md-3 col-12 my-3">
                         <?=createProductCard($item);?> 
                     </div>
                     <?php endforeach; ?>

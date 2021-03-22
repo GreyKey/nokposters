@@ -2,10 +2,18 @@
     include_once('header.php');
     include_once('includes/product.class.php');
     include_once('includes/admin.class.php');
-    if(!isset($_SESSION['id']) || $_SESSION['id']!== 1) {
-            echo "YOU ARE NOT AUTHORISED TO VIEW THIS PAGE";
-            exit();
-        }
+
+    if (isset($_SESSION['id']) && $_SESSION['id']!== 1) {
+        echo '<main><div class="small-content mt-5">You are currently logged in with a customer account.</div></main>';
+        include_once('footer.php');
+        exit();
+    }
+
+    if(!isset($_SESSION['id'])) {
+        include_once('login-admin.php');
+        include_once('footer.php');
+        exit();
+    }
 
     $product = new Product($db);
     $admin = new Admin($db);
@@ -13,7 +21,6 @@
     $products = $admin->getProductData();
     $status = $admin->getStatusCodes();
     // print_r($open_orders);
-    // $products = $admin->getAllProducts();
 ?>
 <!--BODY-->
 <main>
@@ -121,7 +128,7 @@
                         <th scope="row"><?=$product['product_id']?></th>
                         <td class="text-start product-title-col"><?=$product['product_name']?></td>
                         <td><?=$product['product_quantity']?></td>
-                        <td><?=$product['product_price']?></td>
+                        <td class="rrp"><?=$product['product_price']?></td>
                         <td class="col-sale-price">
                             <div class="input-group input-group-sm">
                             <span class="input-group-text sale-price"><?=$product['product_sale']?></span>

@@ -1,6 +1,9 @@
 <?php
     include_once ('functions.php');
     $cart_total = array_sum($_SESSION['np_cart']);
+    if(!isset($page_title)) {
+      $page_title = "NokPosters";
+    }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -32,19 +35,19 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav m-auto">
             <li class="nav-item">
-              <a class="nav-link px-lg-3" aria-current="page" href="index.php">Home</a>
+              <a class="nav-link ps-2 px-lg-3" aria-current="page" href="index.php">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3" href="products.php">Products</a>
+              <a class="nav-link ps-2 px-lg-3" href="products.php">Products</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3" href="categories.php">Categories</a>
+              <a class="nav-link ps-2 px-lg-3" href="categories.php">Categories</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link px-lg-3" href="about.php">About</a>
+              <a class="nav-link ps-2 px-lg-3" href="about.php">About</a>
             </li>
           </ul>
-
+          <hr class="d-block my-1 d-lg-none">
           <!--Right Aligned NavBar-->
           <ul class="navbar-nav navbar-right">
 
@@ -54,12 +57,12 @@
                 // Add Admin Panel if administrator is logged in
                 if ($_SESSION['id'] == 1) : ?>
                   <li class="nav-item">
-                    <a href="admin.php" class="nav-link" id="admin">Admin</a>
+                    <a href="admin.php" class="nav-link ps-2" id="admin">Admin</a>
                   </li>
                 
                 <?php else: ?>
                   <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <a class="nav-link ps-2 dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                     Welcome, <?=$_SESSION['first_name']?>
                   </a>
                   <ul class="dropdown-menu colour-primary-bg account-dropdown" aria-labelledby="navbarDropdown">
@@ -71,20 +74,20 @@
                 <?php endif ?>
             <?php else : ?>
                 <li class="nav-item">
-                <a class="nav-link px-lg-3" aria-current="page" href="login.php">Login | Sign Up</a>
+                <a class="nav-link ps-2 px-lg-3" aria-current="page" href="login.php">Login | Sign Up</a>
                 </li>
             <?php endif;
             
             if(!isset($_SESSION['id']) || $_SESSION['id'] !== 1) :?>
             <li class="nav-item">
-              <a href="cart.php" class="nav-link" id="cart_quantity">
+              <a href="cart.php" class="nav-link ps-2" id="cart_quantity">
                   <i class="bi bi-cart px-1"></i>
                   <span id="cart_total"><?=$cart_total?></span>
               </a>
             </li>
             <?php else : ?>
               <li class="nav-item">
-                <a href="login/logout.php" class="nav-link" id="logout">
+                <a href="login/logout.php" class="nav-link ps-2" id="logout">
                   Log Out
                 </a>
               </li>

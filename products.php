@@ -9,6 +9,7 @@
     $current_page = isset($_GET['page']) && is_numeric($_GET['page']) ? (int)$_GET['page'] : 1;
 
     if ($current_page > $num_pages) { $current_page = $num_pages; }
+    if ($current_page < 1) { $current_page = 1; }
 
     $offset = ($current_page - 1) * 12;
     $page_products = $product->getProductsForPage($offset);

@@ -26,9 +26,6 @@
                         <button class="nav-link" id="open-orders-tab" data-bs-toggle="tab" data-bs-target="#open-orders"
                         type="button" role="tab" aria-controls="profile" aria-selected="false">Open Orders</button>
                     </li>
-                    <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="messages-tab" data-bs-toggle="tab" data-bs-target="#messages" type="button" role="tab" aria-controls="messages" aria-selected="false">Messages</button>
-                    </li>
                 </ul>
 
                 <!-- Tab panes -->
@@ -106,9 +103,6 @@
                             </div>
                         </div>
                     <?php endforeach ?>
-                    </div>
-                    <div class="tab-pane" id="messages" role="tabpanel" aria-labelledby="messages-tab">
-                        ..s.
                     </div>
                 </div>
 
