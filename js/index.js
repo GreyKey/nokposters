@@ -60,6 +60,32 @@ $(document).ready(function() {
         });
     });
 
+
+$("#login-admin-form").submit(function(e) {
+        e.preventDefault();
+        var email = $("#login-email").val();
+        var password = $("#login-password").val();
+        var submit = $("#login-submit").val();
+        $.ajax({
+            type: "POST",
+            url: "login/authenticate-admin.php",
+            data: {
+                email: email, password:password, submit:submit
+            },
+            success: function(data) {
+                if (data == 1) {
+                    location.reload(); 
+                }
+                else {
+                    $("#login-error-message").html(data);
+                }
+
+            },
+            error: function(xhr, ajaxOptions, thrownerror){}
+        });
+    });
+
+
 // CART EVENTS
 
     $(".add_to_cart").submit(function(e) {
@@ -226,5 +252,9 @@ $(document).ready(function() {
             error: function(xhr, ajaxOptions, thrownerror){}
         });
     });
+
+    $('.artist-select').on('change', function () {
+        $('#go-to-artist-btn').prop('disabled', !$(this).val());
+    }).trigger('change');
 
 });

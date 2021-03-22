@@ -20,10 +20,11 @@ class Success {
         $stmt->bind_param("i", $user_id);
         $stmt->execute();
         $new_order_id = $stmt->insert_id;
-        //Order inserted
+
+        return $new_order_id;
     }
 
-    public function insertOrderDetails() {
+    public function insertOrderDetails($new_order_id) {
         foreach ($_SESSION['np_cart'] as $p_id => $qty) {
             $sql = "INSERT INTO order_details (order_id, product_id, quantity, product_price, total_cost) VALUES (?, ?, ?, ?, ?)";
             $price = $this->getProductPrice($p_id);

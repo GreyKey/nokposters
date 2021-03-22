@@ -99,7 +99,7 @@ class Product
 
     // Return Multiple Products for Page
     public function getProductsForPage($offset){
-        $result = $this->db->conn->query("SELECT * FROM product ORDER BY date_added DESC LIMIT {$offset}, 12");
+        $result = $this->db->conn->query("SELECT * FROM product ORDER BY date_added DESC, product_id ASC LIMIT {$offset}, 12");
         $resultArray = array();
 
         // fetch product data one by one

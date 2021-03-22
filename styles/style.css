@@ -5,10 +5,9 @@
 }
 
 
-/* Fonts */
-/*     
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Rubik', sans-serif; */
+.navbar-dark li > a {
+    color: rgba(255,255,255,.85) !important;
+}
 
 .font-rubik {
     font-family: Rubik, sans-serif;
@@ -66,7 +65,7 @@ main {flex-grow:1;}
 }
 
 
-#signup-form, #login-form {
+#signup-form, #login-form , #login-admin-form {
     border: 1px solid grey;
     border-radius: 5px;
     background-color: white;
@@ -127,6 +126,10 @@ main {flex-grow:1;}
 .product-card:hover .last-chance-badge {
     transform: scale(0);
     opacity: 0;
+}
+
+.card {
+    word-wrap: normal;
 }
 
 .card-title a {

@@ -11,8 +11,8 @@ class Artist
     }
 
     // fetch product data using getData Method
-    public function getData($table = 'artist'){
-        $result = $this->db->conn->query("SELECT * FROM {$table}");
+    public function getData(){
+        $result = $this->db->conn->query("SELECT * FROM artist ORDER BY artist_name ASC");
 
         $resultArray = array();
 

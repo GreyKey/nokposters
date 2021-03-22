@@ -76,7 +76,7 @@ $(document).ready(function() {
         var sale_input = row.find('.input-group');
         var label = sale_input.find('span');
         var new_price = sale_input.find('.new-sale-price').val();
-        var new_label = new_price === "0" ? "" : new_price;
+        var new_label = new_price === "0" ? "" : Number(new_price).toFixed(2);
 
         var product_id = form.find("#product-id").val();
         var submit = form.find('.update-product-btn').val();
@@ -107,8 +107,9 @@ $(document).ready(function() {
         e.preventDefault();
         var row = $(this).parents().eq(2);
         var btn = row.find('.update-product-btn');
-
-        if ($(this).val() !== '') {
+	var rrp = Number(row.find('.rrp').text());
+        var x = $(this).val();
+        if (!isNaN(x) && x != "" && Number(x) >= 0 && Number(x) < rrp) {
             row.addClass('row-edit');
             btn.prop("disabled", false);
         }
