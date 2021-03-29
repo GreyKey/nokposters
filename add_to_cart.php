@@ -1,17 +1,16 @@
 <?php
 require_once('functions.php');
 
-// array errorCode, num Cart
 $data = array(1, 0);
 
 if (isset($_POST['submit'])) {
     $product_id = (int)$_POST['product_id'];
-    $quantity = 1;
+    $quantity = $_POST['quantity'];
 
     if (isset($_SESSION['np_cart']) && is_array($_SESSION['np_cart'])) {
         if (array_key_exists($product_id, $_SESSION['np_cart'])) {
-            // Product exists in cart, only add if current quantity is less than three
-            if ($_SESSION['np_cart'][$product_id] < 3) {
+            // Product exists in cart, only add if new quantity is less than four
+            if ($_SESSION['np_cart'][$product_id] + $quantity < 4) {
                 $_SESSION['np_cart'][$product_id] += $quantity;
             }
             else {
@@ -29,6 +28,7 @@ if (isset($_POST['submit'])) {
     }
     //Return new cart total
     $data[1] = array_sum($_SESSION['np_cart']);
+    $data[2] = $_SESSION['np_cart'][$product_id] == 3 ? 1 : 0;
     echo json_encode($data);
 }
 ?>

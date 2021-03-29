@@ -91,7 +91,7 @@ $("#login-admin-form").submit(function(e) {
     $(".add_to_cart").submit(function(e) {
         e.preventDefault();
         var product_id = $("#product-id").val();
-        var quantity = 1;
+        var quantity = $(".product-quantity-select").val();
         var button = $("#add-cart-submit");
         var submit = button.val();
         var alert = $(".cart-alert");
@@ -106,18 +106,7 @@ $("#login-admin-form").submit(function(e) {
                 if (result[0] == 1) {
                     alert.text("Successfully added to cart");
                     alert.addClass('alert-success');
-                    alert.slideDown(400).delay(2000).slideUp(500);
-                    // Cart Animation
-                    var color = $("#cart_quantity").css('color');
-                    $("#cart_quantity").animate( {
-                        backgroundColor: "#184281",
-                        color: "yellow"
-                    }, 200 ).delay(400).queue(function () {
-                        $("#cart_quantity").animate( {
-                            backgroundColor: "#346cc0",
-                            color: color
-                        }, 200).dequeue();
-                    });
+                    alert.slideDown(400).delay(1000).slideUp(500);
                 }
                 else {
                     alert.text("Can't order more than three");
@@ -126,6 +115,9 @@ $("#login-admin-form").submit(function(e) {
                     alert.slideDown(400);
                 }
                 $("#cart_total").text(result[1]);
+                if (result[2] == 1) {
+                    button.addClass('disabled').attr('aria-disabled', 'true');
+                }
             },
             error: function(xhr, ajaxOptions, thrownerror){}
         });
@@ -225,9 +217,6 @@ $("#login-admin-form").submit(function(e) {
                 submit: submit
             },
             success: function(result) {
-                
-                
-
                 span.animate({
                     opacity: 1
                 }, 600).delay(400).queue(function () {
@@ -235,13 +224,6 @@ $("#login-admin-form").submit(function(e) {
                         opacity: 0
                     }, 600).dequeue();
                 });
-                // $(".cost-div").animate( {
-                //     opacity: 0
-                // }, 600);
-
-                // $(".cost-div").animate({
-                //     opacity: 1
-                // },600);
                 $("#cart_total").text(result[0]);
                 $("#cart-subtotal").text(result[1][0]);
                 $("#cart-shipping").text(result[1][1]);
